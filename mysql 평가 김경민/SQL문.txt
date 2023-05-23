@@ -1,0 +1,30 @@
+use testdb;
+
+-- tbl_student을 만드는 SQL문을 작성합니다.
+create table tbl_student (id int primary key,
+		  name varchar(45),
+                          addr varchar(45),
+                          phone varchar(45));
+          
+
+-- 열을 추가하는 SQL문을 작성합니다.
+alter table tbl_student add column gender varchar(1) null;
+
+
+-- phone열을 제거 하는 SQL문을 작성합니다.alter
+alter table tbl_student drop column phone;
+
+
+-- SQL문으로 내용이 삽일됩 수 있도록 하는 INSERT문 작성
+insert into tbl_student(id, name, addr, gender) value(1, '홍길동', '대구', 'M');
+insert into tbl_student(id, name, addr, gender) value(2, '기명이', '울산', 'M');                        
+insert into tbl_student(id, name, addr, gender) value(3, '김미녀', '인천', 'W');			
+
+
+-- SQL문으로 내용이 수정될 수 있도록 하는 UPDATE문 작성 
+update tbl_student set name='남길동' where id=1;
+update tbl_student set addr='창원' where id=3;
+
+
+-- SQL문으로 내용이 삭제될 수 있도록 하는 DELETE문 작성
+delete from tbl_student where id=2;
