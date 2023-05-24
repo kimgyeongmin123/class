@@ -1,0 +1,43 @@
+package ch2;
+
+public class C04자료형 {
+
+	public static void main(String[] args) {
+
+		//-----------------------
+		//정수 int-4byte 정수 부호 O
+		//-----------------------
+		int n1 = 0b10101101; //2진수값
+		int n2 = 173; //10진정수값
+		int n3 = 0255; //8진수
+		int n4 = 0xad; //16진수
+		System.out.printf("%d %d %d %d\n", n1, n2, n3, n4);
+		
+		//-----------------------
+		//정수 byte-1byte 정수 부호 O
+		//-----------------------
+		System.out.println("-------------------------");
+		byte n5 = -128;
+		byte n6 = -30;
+		byte n7 = 30;
+		byte n8 = 127;
+		byte n9 = (byte)129;  //문제발생.. 왜?
+		System.out.printf("%d\n", n5);
+		
+		//-----------------------
+		//정수 short-2byte 정수 부호 O | char-2byte 정수 부호X (양수만)
+		//-----------------------
+		System.out.println("-------------------------");
+		char n10 = 65535;
+		short n11 = 32767;
+		
+		char n12 = 60000;
+		short n13 = n3;  //문제발생.. 왜?
+		
+		System.out.printf("%d\n", n13);
+		
+		
+		
+	}
+
+}
