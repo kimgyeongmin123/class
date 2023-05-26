@@ -1,0 +1,28 @@
+----------------------
+                8번
+----------------------
+delimiter $$
+create trigger tbl_teacher_delete_trg
+after delete
+on tbl_teacher
+for each row
+begin
+	insert into tbl_teacher_bak (t_id, t_name, t_phone, t_addr, delete_date)
+    values(
+        old.t_id,
+        old.t_name,
+        old.t_phone,
+        old.t_addr,
+        now()
+    );
+end $$
+delimiter ;
+
+delete from tbl_teacher where t_id=7;
+
+select * from tbl_teacher;
+select * from tbl_teacher_bak;
+
+
+
+
