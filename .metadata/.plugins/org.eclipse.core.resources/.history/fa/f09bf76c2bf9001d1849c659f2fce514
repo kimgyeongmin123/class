@@ -1,9 +1,0 @@
-
-public class C02SystemOut {
-
-	public static void main(String[] args) {
-		System.out.print("안녕 만고야\n");
-		System.out.printf("응 안녕? 넌 누구야?");
-		System.out.println("나는 만고야");
-	}
-}
