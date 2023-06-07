@@ -1,0 +1,29 @@
+package Ch10;
+
+class Controller
+{
+	Module module;
+	
+	void setModule(Module module)
+	{
+		this.module = module;
+	}
+}
+
+class Module
+{
+	void Func1() {System.out.println("Module's Func1()");}
+	void Func2() {System.out.println("Module's Func2()");}
+	void Func3() {System.out.println("Module's Func3()");}
+}
+
+public class C01FuntionRef {
+	public static void main(String[] args) {
+		
+		Controller controller1 = new Controller();
+		controller1.setModule(new Module());
+		controller1.module.Func1();
+		
+	}
+
+}

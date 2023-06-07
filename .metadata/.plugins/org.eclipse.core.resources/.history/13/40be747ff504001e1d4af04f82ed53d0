@@ -1,0 +1,36 @@
+package Ch13;
+
+class Parent
+{
+	int x;
+	int y;
+	Parent()
+	{
+		System.out.println("Parent() 생성자 호출!");
+	}
+}
+
+class Son extends Parent
+{
+	int z;
+	Son()
+	{
+		System.out.println("Son() 생성자 호출!");
+	}
+	Son(int x){}
+	Son(int x, int y){}
+	Son(int x, int y, int z){}
+	
+	@Override
+	public String toString() {
+		return "Son [z=" + z + ", x=" + x + ", y=" + y + "]";
+	}
+}
+
+public class C02InheritanceMain {
+	public static void main(String[] args) {
+		
+		Son ob = new Son();
+		System.out.println(ob.toString());
+	}
+}

@@ -1,0 +1,33 @@
+package Ch08;
+
+import java.util.Scanner;
+
+class Sum
+{
+	//속성
+	Scanner sc = new Scanner(System.in);
+	
+	//기능
+	int sum1(int x, int y)
+	{
+		System.out.println("sum1(x,y) 호출!");
+		return x=y;
+	}
+	
+	void sum2()
+	{
+		System.out.println("void sum1(x,y) 호출!");
+		int x = sc.nextInt();
+		int y = sc.nextInt();
+		System.out.println("retult1 : "+(x+y));
+	}
+}
+
+public class C04SimpleMethodTest {
+	public static void main(String[] args) {
+		
+		Sum calc = new Sum();
+		int result1 = calc.sum1(10, 20);
+		System.out.println("result1 : "+result1);
+	}
+}

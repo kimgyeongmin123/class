@@ -1,0 +1,26 @@
+package Ch08;
+
+class C07Simple
+{
+	int sum(int...arg)
+	{
+		for(int n : arg)
+		{
+			System.out.println("인자 값 : "+n);
+			
+		}
+		return 0;
+	}
+}
+
+public class C07가변인자 {
+	public static void main(String[] args) {
+		
+		C07Simple obj = new C07Simple();
+		obj.sum(10); System.out.println();
+		obj.sum(10,20); System.out.println();
+		obj.sum(10,20,30); System.out.println();
+		obj.sum(10,20,30,40); System.out.println();
+	}
+
+}

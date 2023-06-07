@@ -1,0 +1,52 @@
+package Ch08Ex;
+
+class Sub
+{
+	int sub1(int x, int y)
+	{
+		System.out.println("sub1 실행");
+		return x-y;
+	}
+	
+	int sub2(int x, int y)
+	{
+		System.out.println("sub2 실행");
+		if(x<y)
+		{
+			int tmp = x;
+			x = y;
+			y = tmp;
+		}
+		
+		return x-y;
+	}
+	
+	int sub3(int x, int y, int z)
+	{
+		
+	}
+}
+
+class Mul
+{
+	
+}
+
+public class C04SimpleMethod {
+	public static void main(String[] args) {
+		
+		Sub subcal = new Sub();
+		Mul mulcal = new Mul();
+		
+		int r1 = subcal.sub1(200,100);
+		int r2 = subcal.sub2(100,200);		//큰수에서 작은수의 뺼셈결과를 반환
+		int r3 = subcal.sub3(200,500,200);	//큰수에서 작은수의 뺄셈결과를 반환
+		
+		System.out.println(r1);
+		System.out.println(r2);
+		
+		int r4 = mulcal.mul1(10,20);		
+		int r5 = mulcal.mul2(10,20,30);
+		mulcal.mul3();						//내부에서 두개의 값을 받아 곱셈의 결과를 콘솔창에 출력
+	}
+}

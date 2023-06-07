@@ -1,0 +1,19 @@
+package Ch11;
+
+public class C03MultiArrayMain {
+	public static void main(String[] args) {
+		
+		int [][] arr1 = new int[2][3];
+		arr1[0][0] = 10;
+		arr1[0][1] = 20;
+		arr1[0][2] = 30;
+		
+		arr1[1][0] = 11;
+		arr1[1][1] = 22;
+		arr1[1][2] = 33;
+		System.out.println("행 개수 : "+arr1.length);
+		System.out.println("0번째 행의 열 개수 : "+arr1[0].length);
+		System.out.println("1번째 행의 열 개수 : "+arr1[1].length);
+	}
+
+}

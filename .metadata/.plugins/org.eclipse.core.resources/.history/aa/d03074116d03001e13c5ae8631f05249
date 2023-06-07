@@ -1,0 +1,18 @@
+package Ch10;
+
+class TV
+boolean
+{
+	//Controller
+	//Module - ON/OFF
+	//Module - Change channel
+	//Module - SetVolumn
+	
+}
+
+public class C02FunctionRef {
+	public static void main(String[] args) {
+		
+		
+	}
+}

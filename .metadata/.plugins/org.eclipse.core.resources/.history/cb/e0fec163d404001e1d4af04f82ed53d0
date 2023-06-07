@@ -1,0 +1,26 @@
+package Ch11Ex;
+
+import java.util.Scanner;
+
+//5 명의 학생에 국영수점수를 입력받아 2차원배열 저장
+//각 학생의 국영수 점수의 합/평균 구하고
+//각 과목당 합/평균 구해보세요.
+
+public class C02Ex {
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int score[][] = new int[5][3];	//행 : 5명의 학생, 열 : 국영수
+//		System.out.println("국영수 점수 입력하세요 : ");
+		for(int i=0;i<score.length;i++)
+		{
+			System.out.println(i+"번째 학생의 국영수 점수를 입력하세요.");
+			for(int j=0;j<score[i].length;j++)
+			{
+				score[i][j] = sc.nextInt();
+			}
+		}
+	}
+
+}

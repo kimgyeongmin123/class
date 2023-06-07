@@ -1,0 +1,38 @@
+package Ch08;
+
+class C05Simple
+{
+	int num;
+	
+	void Func1()
+	{
+		num = 5; 
+		System.out.println("변수 num : "+num);
+		int num=10; //지역변수 생성
+		System.out.println("변수 num : "+num);
+		num++;  //지역변수 num 증가
+		System.out.println("변수 num : "+num);
+		this.num = num;
+		System.out.println("변수 num : "+this.num);
+		
+	}
+	
+	void Func2()
+	{
+		
+	}
+	
+	void Func3()
+	{
+		
+	}
+}
+
+public class C05LocalVar {
+	public static void main(String[] args) {
+		
+		C05Simple obj = new C05Simple();
+		
+		obj.Func1();
+	}
+}

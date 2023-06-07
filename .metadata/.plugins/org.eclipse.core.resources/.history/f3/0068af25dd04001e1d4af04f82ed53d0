@@ -1,0 +1,26 @@
+package Ch12;
+
+class C01Simple
+{
+	int num1=0;
+	int num2=0;
+	
+	@Override
+	public String toString() {
+		return "C01Simple [num1=" + num1 + ", num2=" + num2 + "]";
+	}
+	
+	
+}
+
+public class C01Static {
+	public static void main(String[] args) {
+		
+		C01Simple ob1 = new C01Simple();
+		C01Simple ob2 = new C01Simple();
+		
+		System.out.println(ob1);
+		System.out.println(ob2);
+	}
+
+}
