@@ -1,0 +1,37 @@
+package Ch13;
+
+class Animal
+{
+	public void Sound()
+	{
+		System.out.println("소리를 냅니다.");
+	}
+}
+
+class Dog extends Animal
+{
+	public void Sound()
+	{
+		System.out.println("워렁뤙ㄹ우렁뤙뤄!!!월우렁러ㅜㄹ!!!!");
+	}
+}
+
+class Cat extends Animal
+{
+	public void Sound()
+	{
+		System.out.println("우아ㅏ아애애ㅐ애애ㅐ애애앵옹");
+	}
+}
+
+public class C03OverridingMain {
+	public static void main(String[] args) {
+		
+		Dog poppi = new Dog();
+		Cat navi = new Cat();
+		
+		poppi.Sound();
+		navi.Sound();
+	}
+
+}

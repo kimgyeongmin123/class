@@ -1,0 +1,31 @@
+package Ch14;
+
+class Par1
+{	
+	void Func()	//완성형 메소드
+	{
+		
+	}
+}
+
+class Son1 extends Par1
+{
+	void Func()
+	{
+		System.out.println("Son1에서 재정의한 Func() 호출!");
+	}
+}
+
+class Par2
+{
+	
+}
+
+class Son2 extends Par2
+{
+	
+}
+
+public class C01AbstractMain {
+
+}

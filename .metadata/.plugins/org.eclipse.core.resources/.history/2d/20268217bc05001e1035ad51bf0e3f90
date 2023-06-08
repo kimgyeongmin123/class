@@ -1,0 +1,40 @@
+package Ch14;
+
+class Par1
+{	
+	void Func()	//완성형 메소드
+	{
+		
+	}
+}
+
+class Son1 extends Par1
+{
+	void Func()	
+	{
+		System.out.println("Son1에서 재정의한 Func() 호출!");
+	}
+}
+
+abstract class Par2
+{
+	abstract void Func();	//추상메서드(미완성된 메서드)
+}
+
+class Son2 extends Par2	
+{
+
+	@Override
+	void Func() {
+		System.out.println("Son2에서 강제로 재정의한 Func() 호출!");
+		
+	}
+	
+}
+
+public class C01AbstractMain {
+	public static void main(String[] args) {
+		
+		Par1 ob1 = new Par1();
+	}
+}
