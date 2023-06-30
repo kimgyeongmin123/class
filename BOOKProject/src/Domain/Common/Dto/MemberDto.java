@@ -6,7 +6,7 @@ public class MemberDto {
 	private String username;
 	private String role;
 	
-	//모든인자 생성자
+	public MemberDto(){}
 	public MemberDto(String id, String pw, String username, String role) {
 		super();
 		this.id = id;
@@ -14,17 +14,6 @@ public class MemberDto {
 		this.username = username;
 		this.role = role;
 	}
-	
-	//기본생성자
-	public MemberDto() {}
-	
-	//toString
-	@Override
-	public String toString() {
-		return "MemberDto [id=" + id + ", pw=" + pw + ", username=" + username + ", role=" + role + "]";
-	}
-	
-	//Getter/Setter
 	public String getId() {
 		return id;
 	}
@@ -49,14 +38,14 @@ public class MemberDto {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@Override
+	public String toString() {
+		return "MemberDto [id=" + id + ", pw=" + pw + ", username=" + username + ", role=" + role + "]";
+	}
 
+	//기본생성자
+	//모든인자 생성자
+	//ToString
+	//Getter and Setter
+	
 }

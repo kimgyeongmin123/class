@@ -3,6 +3,7 @@ package Tests.DaoTests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -17,116 +18,122 @@ import Domain.Common.Dto.MemberDto;
 public class DaoTests {
 
 	@Test
-	public void MemberDaoTest1() {
+	public void BookDaoTest1() {
 		BookDao dao = new BookDao();
-		// 객체연결 여부 확인 Test함수
-		assertNotNull(dao); // 낫널인지 확인
+		//객체연결 여부 확인 Test함수
+		assertNotNull(dao);
 	}
-
+	
 	@Test
 	public void BookDaoTest2_insert() throws Exception {
 		BookDao dao = new BookDao();
 		assertNotNull(dao);
-		int result = dao.insert(new BookDto(1, "JAVA의 정석", "A출판사", "1111"));
-		assertEquals(1, result); // 기대값,실제값을 비교해서 다르면 에러
+		int result=dao.insert(new BookDto(1,"JAVA의정석","A출판사","1111"));
+		assertEquals(1,result); //기대값,실제값
 	}
-
 	@Test
 	public void BookDaoTest3_insert_post100() throws Exception {
 		BookDao dao = new BookDao();
 		assertNotNull(dao);
-		int result = 0;
-		for (int i = 1; i < 100; i++) {
-			result += dao.insert(new BookDto(i + 1, "JAVA의 정석" + i, "A출판사", "1111" + i));
+		int result=0;
+		for(int i=1;i<100;i++) {
+			result+=dao.insert(new BookDto(1+i,"JAVA의정석"+i,"A출판사","1111"+i));
 		}
-		assertEquals(99, result); // 기대값,실제값을 비교해서 다르면 에러
+		assertEquals(99,result); //기대값,실제값
+		
 	}
-
 	@Test
 	public void BookDaoTest4_select() throws Exception {
 		BookDao dao = new BookDao();
 		assertNotNull(dao);
-
+ 
 		List<BookDto> list = dao.select();
 		assertNotNull(list);
-
-		list.stream().forEach((dto) -> {
+		
+		list.stream().forEach((dto)->{
 			System.out.println(dto);
-		});
+		} );
 	}
-
+	
 	@Test
 	public void BookDaoTest5_select_bookcode() throws Exception {
 		BookDao dao = new BookDao();
 		assertNotNull(dao);
-
-		List<BookDto> dto = dao.select(10);
+ 
+		BookDto dto = dao.select(10);
 		assertNotNull(dto);
-
+		
 		System.out.println(dto);
-
-	}
-
-	// MemberDao----------------------------------------------------------------------------------
+		 
+	}	
+	//MemberDao ----------------------------------------------------
 	@Test
 	public void MemberDaoTest1_insert() throws Exception {
 		MemberDao dao = new MemberDao();
 		assertNotNull(dao);
-		int result = dao.insert(new MemberDto("user1", "1111", "홍길동", "ROLE_USER"));
-		assertEquals(1, result); // 기대값,실제값을 비교해서 다르면 에러
+		int result=dao.insert(new MemberDto("user1","1111","홍길동","ROLE_USER"));
+		assertEquals(1,result); //기대값,실제값	
 	}
-
+	
 	@Test
 	public void MemberDaoTest2_update() throws Exception {
 		MemberDao dao = new MemberDao();
 		assertNotNull(dao);
-		int result = dao.update(new MemberDto("user1", "1234", "hong", "ROLE_MEMBER"));
-		assertEquals(1, result); // 기대값,실제값을 비교해서 다르면 에러
+		int result=dao.update(new MemberDto("user1","1234","hongGilDong","ROLE_MEMBER"));
+		assertEquals(1,result); //기대값,실제값		
 	}
-
+	
 	@Test
 	public void MemberDaoTest3_delete() throws Exception {
 		MemberDao dao = new MemberDao();
 		assertNotNull(dao);
-		int result = dao.delete("");
-		assertEquals(1, result); // 기대값,실제값을 비교해서 다르면 에러
-	}
-
+		int result=dao.delete("user1");
+		assertEquals(1,result); //기대값,실제값		
+	}	
 	@Test
 	public void MemberDaoTest4_postMember() throws Exception {
 		MemberDao dao = new MemberDao();
 		assertNotNull(dao);
-		int result = 0;
-		for (int i = 1; i < 5; i++) {
-			result += dao.insert(new MemberDto("user" + i, "1234", "username" + i, "ROLE_USER"));
+		int result=0;
+		for(int i=1;i<=5;i++) {
+			result += dao.insert(new MemberDto("user"+i,"1234","username"+i,"ROLE_USER"));
 		}
-		for (int i = 6; i < 10; i++) {
-			result += dao.insert(new MemberDto("member" + i, "1234", "membername" + i, "ROLE_MEMBER"));
-		}
-		assertEquals(10, result);
+		for(int i=6;i<=10;i++) {
+			result += dao.insert(new MemberDto("member"+i,"1234","member"+i,"ROLE_MEMBER"));
+		}	
+		assertEquals(10,result);
 	}
-
 	@Test
 	public void MemberDaoTest5_select() throws Exception {
 		MemberDao dao = new MemberDao();
 		assertNotNull(dao);
 		List<MemberDto> list = dao.select();
-
-		list.stream().forEach((dto) -> {
-			System.out.println(dto);
-		});
-	}
-	//LendDao----------------------------------------------------------------------------------------
+		
+		list.stream().forEach( (dto)->{ System.out.println(dto);} );
+		
+		//단건 조회
+		MemberDto dto =  dao.select("user2");
+		System.out.println("단건조회 : " + dto);
+		
+	}	
+	//LendDao-----------------------------------------
 	@Test
 	public void LendDaoTest1_insert() throws Exception{
+		
 		LendDao dao = new LendDao();
-		assertNotNull(dao);
+		assertNotNull(dao);	//Unit Test Function
 		
 		LendDto dto = new LendDto();
 		dto.setBookcode(1);
-		dto.setId("aab");
-		int result = dao.insert(dto);
+		dto.setId("user1");
+		int result= dao.insert(dto);
 		
-		assertEquals(1,result);
+		assertEquals(1,result);//Unit Test Function
+		 
 	}
+	//ReserveDao-----------------------------------------
+
 }
+
+
+
