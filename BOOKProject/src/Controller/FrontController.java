@@ -32,8 +32,8 @@ public class FrontController {
 		  
 		  if(controller instanceof BookController) {
 			  
-			  BookController down=(BookController)controller;	//다운캐스팅
-			  result = down.execute(ServiceNo,param);
+			  BookController down=(BookController)controller;
+			  result= down.execute(ServiceNo,param);
 			  System.out.println("BOOKCONTROLLER !");
 			  
 			  
@@ -46,14 +46,15 @@ public class FrontController {
 		  }else if(controller instanceof MemberController) {
 			 
 			  MemberController down=(MemberController)controller;
-			  result = down.execute(ServiceNo,param);
+			  result=down.execute(ServiceNo,param);
 			  
 			  System.out.println("MemberController !");
 			  
 		  }else {
 			  System.out.println("Request ERROR");
 		  }
-		return result;
+		  
+		  return result;
 		  
 	}
 	

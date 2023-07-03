@@ -9,10 +9,12 @@ import Controller.FrontController;
 import Domain.Common.Dto.BookDto;
 
 public class TUI {
+
 	private String sid; // SessionId
 	private String id; // UserId
 	private String role;
 	private Scanner sc = new Scanner(System.in);
+
 	private FrontController controller;
 
 	TUI() {
@@ -94,58 +96,53 @@ public class TUI {
 			switch (num) {
 			case 1:
 				Map<String, Object> result = controller.execute("/book", 1, null);
-				List<BookDto> list = (List) result.get("result"); // 다운캐스팅
+				List<BookDto> list = (List<BookDto>) result.get("result");
 				list.stream().forEach((dto) -> {
 					System.out.println(dto);
 				});
 
 				break;
 			case 2:
-				System.out.println("도서코드 도서명 출판사 ISBN 입력 : ");
+				System.out.print("도서코드 도서명 출판사 ISBN 입력 : ");
 				int bookcode = sc.nextInt();
 				String bookname = sc.next();
 				String publisher = sc.next();
 				String isbn = sc.next();
 
 				Map<String, Object> param = new HashMap();
-
 				param.put("bookcode", bookcode);
 				param.put("bookname", bookname);
 				param.put("publisher", publisher);
 				param.put("isbn", isbn);
 				param.put("sid", sid);
 				Map<String, Object> result2 = controller.execute("/book", 2, param);
-				Boolean isInsert = (Boolean) result2.get("result2");
-				if (isInsert == true) {
+				Boolean isInsert = (Boolean) result2.get("result");
+				if (isInsert == true)
 					System.out.println("[INFO] 도서 등록 완료!");
-				}
 
 				break;
-
 			case 3:
-
 				break;
 
 			case 7:
-				// 대여하기
-				int req_bookcode = sc.nextInt();
+				//대여하기
+				int req_bookcode=sc.nextInt();
 				String userid = sc.next();
-				Map<String, Object> lend_param = new HashMap();
+				Map<String,Object> lend_param=new HashMap();
 				lend_param.put("bookcode", req_bookcode);
 				lend_param.put("id", userid);
-				lend_param.put("sid", sid);
-				Map<String, Object> result7 = controller.execute("/lend", 2, lend_param);
-				Boolean isLend = (Boolean) result7.get("result");
-				if (isLend)
+				lend_param.put("sid",sid);
+				Map<String,Object> result7=controller.execute("/lend", 2, lend_param);
+				Boolean isLend=(Boolean)result7.get("result");
+				if(isLend) {
 					System.out.println("[INFO] 대여완료!");
-
+				}
 				break;
-
+			
 			case 10:
-
+				
 				// 로그아웃
 				return;
-
 			}
 
 		}

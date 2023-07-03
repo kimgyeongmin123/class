@@ -25,7 +25,7 @@ public class MemberDao {
 			instance=new MemberDao();
 		return instance;
 	}
-	//
+	 
 	private MemberDao(){
 		id="root";
 		pw="1234";

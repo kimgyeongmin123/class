@@ -103,7 +103,7 @@ public class MemberService {
 	
 	
 	//로그인
-	public Map<String, Object> login(String id, String pw) throws Exception{
+	public Map<String,Object> login(String id, String pw) throws Exception{
 		//1 ID/PW 체크 ->Dao 전달받은 id와 일치하는 정보를 가져와서 Pw일치 확인
 		MemberDto dbDto = dao.select(id);
 		if(dbDto==null) {
