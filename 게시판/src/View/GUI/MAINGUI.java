@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,6 +16,9 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
+import Domain.Common.Dao.BoardDao;
+import Domain.Common.Dto.BoardDto;
 
 public class MAINGUI extends JFrame implements ActionListener, KeyListener {
 	JButton btn1; // 글작성
@@ -60,7 +64,7 @@ public class MAINGUI extends JFrame implements ActionListener, KeyListener {
 		lbl1 = new JLabel("게시판");
 		area1 = new JTextArea();
 		scroll1 = new JScrollPane(area1);
-		scroll2 = new JScrollPane(area1);
+		scroll2 = new JScrollPane(tbl2);
 		srch = new JTextField();
 
 //		Position
@@ -80,6 +84,33 @@ public class MAINGUI extends JFrame implements ActionListener, KeyListener {
 		srch.setBounds(15, 800, 140, 30); // 검색
 
 //		event 처리
+		
+//		tbl2에 전체 게시물 보여주기
+		// 보드 DAO 인스턴스 생성
+        BoardDao boardDao = BoardDao.getInstance();
+
+        // 게시물 정보 가져오기
+        List<BoardDto> boardList = null;
+		try {
+			boardList = boardDao.select();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+
+        // 게시물 정보를 테이블에 추가
+        for (BoardDto board : boardList) {
+            String number = String.valueOf(board.getNumber());
+            String id = board.getId();
+            String title = board.getTitle();
+            String date = board.getDate();
+            int hits = board.getHits();
+            // 행 추가
+            model.addRow(new Object[]{number, id, title, date,hits});
+        }
+
+        tbl2.setModel(model);
+		
 //		글작성
 		btn1.addActionListener(new ActionListener() {
 
@@ -118,23 +149,25 @@ public class MAINGUI extends JFrame implements ActionListener, KeyListener {
 		});
 
 		tbl1.addKeyListener(this);
+		tbl2.addKeyListener(this);
 		area1.setEditable(false);
-
+		
 		btn1.setFont(new Font("굴림", Font.BOLD, 12));
 		btn2.setFont(new Font("굴림", Font.BOLD, 12));
 		btn3.setFont(new Font("굴림", Font.BOLD, 12));
 		btn4.setFont(new Font("굴림", Font.BOLD, 12));
 		btn5.setFont(new Font("굴림", Font.BOLD, 12));
-
 		lbl1.setFont(new Font("굴림", Font.BOLD, 30)); // 제목
-
+		
+		
 		// Add_Panel_Component
 		panel.add(btn1);
 		panel.add(btn2);
 		panel.add(btn3);
 		panel.add(btn4);
 		panel.add(btn5);
-
+		panel.add(tbl1);
+		panel.add(scroll2);
 		panel.add(lbl1); // 다 같이 게시판 제목
 
 		panel.add(srch);

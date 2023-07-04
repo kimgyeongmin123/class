@@ -19,6 +19,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import Domain.Common.Dao.BoardDao;
+import Domain.Common.Dto.BoardDto;
+
 //	id는 JLabel을 사용하여 불러오게끔....
 
 public class Writer_GUI extends JFrame implements ActionListener, KeyListener {
@@ -61,7 +64,7 @@ public class Writer_GUI extends JFrame implements ActionListener, KeyListener {
 		txt1.addKeyListener(this);
 		txt2.addKeyListener(this);
 //		txt1.setBounds(40, 15, 300, 40); // 아이디 넣을 위치
-		
+
 		txt1.addFocusListener(new FocusListener() {
 			@Override
 			public void focusGained(FocusEvent e) {
@@ -92,59 +95,105 @@ public class Writer_GUI extends JFrame implements ActionListener, KeyListener {
 				}
 			}
 		});
-		
+
+		// 보드 DAO 인스턴스 생성
+		BoardDao boardDao = BoardDao.getInstance();
+
+		// 저장버튼 눌렀을 때 이벤트 처리
 		btn1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "저장하실?");
-				
+
+//				List<BoardDto> boardList = null;
+//				boardList = boardDao.insert();
+//				
+//				new MAINGUI();
+//				dispose();
+
+				// 사용자가 입력한 제목과 내용을 가져옴
+				String title = txt1.getText();
+				String contents = txt2.getText();
+
+				// BoardDto 객체를 생성하여 입력할 데이터 설정
+				BoardDto boardDto = new BoardDto();
+				boardDto.setTitle(title);
+				boardDto.setContents(contents);
+
+				try {
+					// DAO를 사용하여 데이터 저장
+					int result = boardDao.insert(boardDto, "role"); // role에는 적절한 값을 전달해야 합니다.
+
+					if (result > 0) {
+						// 저장 완료 메시지 표시
+						JOptionPane.showMessageDialog(null, "글이 저장되었습니다.");
+
+						// 저장 후에는 원하는 동작을 수행하도록 구현
+
+						// 현재 GUI 창 닫기
+						dispose();
+
+						// 다른 GUI 창 열기
+						new MAINGUI();
+					} else {
+						// 저장 실패 메시지 표시
+						JOptionPane.showMessageDialog(null, "글 저장에 실패했습니다.");
+					}
+				} catch (Exception ex) {
+					ex.printStackTrace();
+					// 예외 처리 작업
+				}
 			}
 		});
-		
+
 		btn2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "나가실?");
-                dispose(); // 현재 GUI 창 닫기
-                
-                new MAINGUI(); // GUI1으로 돌아가기
+				dispose(); // 현재 GUI 창 닫기
+
+				new MAINGUI(); // GUI1으로 돌아가기
 			}
 		});
-	
+
 //		글씨체
-		btn1.setFont(new Font("굴림",Font.BOLD,12));
-		btn2.setFont(new Font("굴림",Font.BOLD,12));	
-		
+		btn1.setFont(new Font("굴림", Font.BOLD, 12));
+		btn2.setFont(new Font("굴림", Font.BOLD, 12));
+
 //		tap키 순서 지정
-		List<Component> tabOrder = new ArrayList<>();  //tap키 순서 지정
+		List<Component> tabOrder = new ArrayList<>(); // tap키 순서 지정
 		tabOrder.add(txt1);
 		tabOrder.add(txt2);
 		tabOrder.add(btn1);
 		tabOrder.add(btn2);
-		
+
 //		add_panel_component
 		panel.add(btn1);
 		panel.add(btn2);
 		panel.add(txt1);
 		panel.add(txt2);
 		panel.add(scroll1);
-		
+
 //		Frame
 		add(panel);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
-		
+
 	}
 
 	@Override
-	public void keyTyped(KeyEvent e) {}
+	public void keyTyped(KeyEvent e) {
+	}
 
 	@Override
-	public void keyPressed(KeyEvent e) {}
+	public void keyPressed(KeyEvent e) {
+	}
 
 	@Override
-	public void keyReleased(KeyEvent e) {}
+	public void keyReleased(KeyEvent e) {
+	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {}
+	public void actionPerformed(ActionEvent e) {
+	}
 }
