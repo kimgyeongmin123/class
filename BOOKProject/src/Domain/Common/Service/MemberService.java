@@ -31,7 +31,7 @@ public class MemberService {
 	}
 	//
 	
-	private MemberService() {
+	public MemberService() {
 		dao=MemberDao.getInstance();
 		sessionMap=new HashMap();
 	}

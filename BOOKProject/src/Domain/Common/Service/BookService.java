@@ -22,7 +22,7 @@ public class BookService {
 	
 	//
 	private MemberService memberService;
-	private BookService() {
+	public BookService() {
 		dao = BookDao.getInstance();
 		memberService = MemberService.getInstance();
 	}

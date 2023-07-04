@@ -64,7 +64,7 @@ public class BoardDao {
 				dto.setId(rs.getString("id"));
 				dto.setTitle(rs.getString("title"));
 				dto.setContents(rs.getString("contents"));
-				dto.setNowdate(rs.getString("date"));
+				dto.setDate(rs.getString("date"));
 				dto.setHits(rs.getInt("hits"));
 				list.add(dto);
 			}
@@ -93,7 +93,7 @@ public class BoardDao {
 			dto.setNumber(rs.getInt("number"));
 			dto.setId(rs.getString("id"));
 			dto.setTitle(rs.getString("title"));
-			dto.setNowdate(rs.getString("date"));
+			dto.setDate(rs.getString("date"));
 			dto.setHits(rs.getInt("hits"));
 			rs.close();
 		}
@@ -112,7 +112,7 @@ public class BoardDao {
 			dto.setNumber(rs.getInt("number"));
 			dto.setId(rs.getString("id"));
 			dto.setTitle(rs.getString("title"));
-			dto.setNowdate(rs.getString("date"));
+			dto.setDate(rs.getString("date"));
 			dto.setHits(rs.getInt("hits"));
 			rs.close();
 		}
@@ -132,7 +132,7 @@ public class BoardDao {
 			dto.setNumber(rs.getInt("number"));
 			dto.setId(rs.getString("id"));
 			dto.setTitle(rs.getString("title"));
-			dto.setNowdate(rs.getString("date"));
+			dto.setDate(rs.getString("date"));
 			dto.setHits(rs.getInt("hits"));
 			rs.close();
 		}
@@ -148,12 +148,13 @@ public class BoardDao {
 		return pstmt.executeUpdate();
 	}
 //	내가 쓴 글 삭제
-	public int delete(BoardDto dto) throws Exception{
-		pstmt = conn.prepareStatement("delete from tbl_contents where id = ? and title = ?");
-		pstmt.setString(1, dto.getId());
-		pstmt.setString(2, dto.getTitle());
+	public int delete(String id) throws Exception{  //여기도 이어져요
+		pstmt = conn.prepareStatement("delete from tbl_board where id = ?");
+		pstmt.setString(1, id);
+		int result = pstmt.executeUpdate();
+		pstmt.close();
 		
-		return pstmt.executeUpdate();
+		return result;
 	}
 
 

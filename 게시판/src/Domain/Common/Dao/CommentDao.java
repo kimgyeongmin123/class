@@ -18,6 +18,14 @@ public class CommentDao {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
+	
+	private static CommentDao instance;
+	public static CommentDao getInstance() {
+		if(instance==null)
+			instance = new CommentDao();
+		return instance;
+	}
+	
 	private CommentDao(){
 		id = "root";
 		pw = "1234";
@@ -48,7 +56,7 @@ public class CommentDao {
 		return list;
 	}
 //	댓글 작성 
-	public int insert(CommentDto dto) throws Exception{
+	public int insert(CommentDto dto, String role) throws Exception{
 		pstmt = conn.prepareStatement("insert into tbl_comment values(?,?,now())");
 		pstmt.setString(1, dto.getId());
 		pstmt.setString(2, dto.getComment());
@@ -66,7 +74,7 @@ public class CommentDao {
 	}
 //	댓글 삭제
 	public int delete(String id) throws Exception{
-		pstmt = conn.prepareStatement("delete from tbl_comment where id=?");
+		pstmt = conn.prepareStatement("delete from tbl_comment where id=?, number=?");
 		pstmt.setString(1, id);
 		
 		return pstmt.executeUpdate();
