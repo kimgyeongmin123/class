@@ -6,7 +6,6 @@ import java.util.Map;
 import Domain.Common.Dao.BoardDao;
 import Domain.Common.Dao.CommentDao;
 import Domain.Common.Dto.BoardDto;
-import Domain.Common.Dto.CommentDto;
 import Domain.Common.Service.Auth.Session;
 
 public class BoardService {
@@ -39,13 +38,13 @@ public class BoardService {
 	// 글 하나 조회
 	public BoardDto getBoard(int number) throws Exception {
 		System.out.println("BoardService's getBoard()");
-		return Bdao.select(number);
+		return Bdao.select_one(number);
 	}
 
 	// 내가 쓴 글 조회
 	public List<BoardDto> boardsearch_mine(String id) throws Exception {
 		System.out.println("BoardService's boardsearch_mine()");
-		
+
 		return Bdao.select_mine(id);
 	}
 
@@ -70,7 +69,7 @@ public class BoardService {
 		Map<String, Object> results = memberService.login("id", "pw");
 		String role = (String) results.get("result");
 
-		if (role.equals("ROLE_MEMBER")) {
+		if (role.equals("MEMBER")) {
 			int result = Bdao.insert(dto, role);
 			if (result > 0)
 				return true;

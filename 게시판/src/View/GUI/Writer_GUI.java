@@ -20,6 +20,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import Domain.Common.Dao.BoardDao;
+import Domain.Common.Dao.MemberDao;
 import Domain.Common.Dto.BoardDto;
 
 //	id는 JLabel을 사용하여 불러오게끔....
@@ -105,12 +106,6 @@ public class Writer_GUI extends JFrame implements ActionListener, KeyListener {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "저장하실?");
 
-//				List<BoardDto> boardList = null;
-//				boardList = boardDao.insert();
-//				
-//				new MAINGUI();
-//				dispose();
-
 				// 사용자가 입력한 제목과 내용을 가져옴
 				String title = txt1.getText();
 				String contents = txt2.getText();
@@ -141,6 +136,7 @@ public class Writer_GUI extends JFrame implements ActionListener, KeyListener {
 					}
 				} catch (Exception ex) {
 					ex.printStackTrace();
+					JOptionPane.showMessageDialog(null, "로그인을 하고 글을 써라.");
 					// 예외 처리 작업
 				}
 			}

@@ -10,8 +10,12 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import Domain.Common.Dto.MemberDto;
+import Domain.Common.Service.MemberService;
 
 public class Join_GUI extends JFrame implements ActionListener, KeyListener{
 	JButton btn1;
@@ -48,7 +52,32 @@ public class Join_GUI extends JFrame implements ActionListener, KeyListener{
 
 		// Event처리
 		
-//		btn1 로그인 처리 해야됨
+//		수정해야돼 !!!!!!!!!!!!!!!!!!!!!!!
+		btn1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// 아이디와 패스워드 가져오기
+		        String id = txt1.getText();
+		        String password = txt2.getText();
+
+		        // MemberDto 생성
+		        MemberDto dto = new MemberDto(id, password);
+
+		        try {
+		            // 회원가입 처리
+		            boolean success = MemberService.getInstance().Join(dto);
+		            if (success) {
+		                // 회원가입 성공
+		            	JOptionPane.showMessageDialog(Join_GUI.this, "회원가입이 완료되었습니다.", "회원가입 성공", JOptionPane.INFORMATION_MESSAGE);
+		            } else {
+		                // 회원가입 실패
+		            	JOptionPane.showMessageDialog(Join_GUI.this, "회원가입에 실패하였습니다.", "회원가입 실패", JOptionPane.ERROR_MESSAGE);
+		            }
+		        } catch (Exception ex) {
+		            ex.printStackTrace();
+		        }
+			}
+		});
 
 		btn2.addActionListener(new ActionListener() {
 

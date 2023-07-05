@@ -48,7 +48,7 @@ public class MAINGUI extends JFrame implements ActionListener, KeyListener {
 		panel.setLayout(null);
 
 //		테이블 열이름
-		String[] columns = { "number", "id", "title", "date" };
+		String[] columns = { "No", "아이디", "제목", "작성날짜", "조회수" };
 //		테이블 데이터
 //		테이블 모델
 		DefaultTableModel model = new DefaultTableModel(columns, 0);
@@ -84,33 +84,32 @@ public class MAINGUI extends JFrame implements ActionListener, KeyListener {
 		srch.setBounds(15, 800, 140, 30); // 검색
 
 //		event 처리
-		
+
 //		tbl2에 전체 게시물 보여주기
 		// 보드 DAO 인스턴스 생성
-        BoardDao boardDao = BoardDao.getInstance();
+		BoardDao boardDao = BoardDao.getInstance();
 
-        // 게시물 정보 가져오기
-        List<BoardDto> boardList = null;
+		// 게시물 정보 가져오기
+		List<BoardDto> boardList = null;
 		try {
 			boardList = boardDao.select();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
+		// 게시물 정보를 테이블에 추가
+		for (BoardDto board : boardList) {
+			String number = String.valueOf(board.getNumber());
+			String id = board.getId();
+			String title = board.getTitle();
+			String date = board.getDate();
+			int hits = board.getHits();
+			// 행 추가
+			model.addRow(new Object[] { number, id, title, date, hits });
+		}
 
-        // 게시물 정보를 테이블에 추가
-        for (BoardDto board : boardList) {
-            String number = String.valueOf(board.getNumber());
-            String id = board.getId();
-            String title = board.getTitle();
-            String date = board.getDate();
-            int hits = board.getHits();
-            // 행 추가
-            model.addRow(new Object[]{number, id, title, date,hits});
-        }
+		tbl2.setModel(model);
 
-        tbl2.setModel(model);
-		
 //		글작성
 		btn1.addActionListener(new ActionListener() {
 
@@ -151,15 +150,14 @@ public class MAINGUI extends JFrame implements ActionListener, KeyListener {
 		tbl1.addKeyListener(this);
 		tbl2.addKeyListener(this);
 		area1.setEditable(false);
-		
+
 		btn1.setFont(new Font("굴림", Font.BOLD, 12));
 		btn2.setFont(new Font("굴림", Font.BOLD, 12));
 		btn3.setFont(new Font("굴림", Font.BOLD, 12));
 		btn4.setFont(new Font("굴림", Font.BOLD, 12));
 		btn5.setFont(new Font("굴림", Font.BOLD, 12));
 		lbl1.setFont(new Font("굴림", Font.BOLD, 30)); // 제목
-		
-		
+
 		// Add_Panel_Component
 		panel.add(btn1);
 		panel.add(btn2);

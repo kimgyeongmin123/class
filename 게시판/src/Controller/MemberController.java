@@ -47,11 +47,11 @@ public class MemberController {
 				return null;
 			}
 			// 서비스 실행
-			MemberDto dto = new MemberDto(id, pw);
+			MemberDto dto = null;
 			System.out.println("Dto : " + dto);
 			Boolean rValue = false;
 			try {
-				rValue = service.Join(new MemberDto("id", "pw"));
+				rValue = service.Join(new MemberDto("id", "pw", "role"));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -64,7 +64,6 @@ public class MemberController {
 			// 값 추출
 			String id = (String) param.get("id");
 			String pw = (String) param.get("pw");
-			String role = (String) param.get("role");
 			// 값 검증
 			if (id == null || pw == null) {
 				System.out.println("[ERROR] Data Validation Check Error!");
@@ -73,7 +72,7 @@ public class MemberController {
 			// 서비스 실행
 			Boolean rValue = false;
 			try {
-				rValue = service.memberDelete(id, role);
+				rValue = service.memberDelete(id, pw);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -92,7 +91,6 @@ public class MemberController {
 				return null;
 			}
 			// 서비스 실행
-			MemberDto dto = new MemberDto(id, pw);
 			Map<String, Object> result = new HashMap();
 			String role = null;
 			try {
@@ -106,6 +104,7 @@ public class MemberController {
 			// 값 추출
 			String id = (String) param.get("id");
 			String pw = (String) param.get("pw");
+			String role = (String) param.get("role");
 			// 값 검증
 			if (id == null || pw == null) {
 				System.out.println("[ERROR] Data Validation Check Error!");
@@ -114,7 +113,7 @@ public class MemberController {
 			// 서비스 실행
 			Boolean rValue = false;
 			try {
-				rValue = service.logout(id, pw);
+				rValue = service.logout(id, pw, role);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -124,8 +123,7 @@ public class MemberController {
 			result.put("result", rValue);
 			return result;
 		}
-		
-		
+
 		return null;
 	}
 }

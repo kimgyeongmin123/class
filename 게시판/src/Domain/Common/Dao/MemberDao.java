@@ -26,6 +26,11 @@ public class MemberDao {
 		return instance;
 	}
 	
+	//id 게터
+	public String getId() {
+        return id;
+    }
+	
 	public MemberDao(){
 		id = "root";
 		pw = "1234";
@@ -59,8 +64,8 @@ public class MemberDao {
 		
 		return pstmt.executeUpdate();
 	}
-// 	회원 id/pw 전체 조회
-	public List<MemberDto> select() throws Exception{
+// 	회원 id/pw 조회
+	public List<MemberDto> select(String id, String pw) throws Exception{
 		List<MemberDto> list = new ArrayList();
 		MemberDto dto = null;
 		pstmt = conn.prepareStatement("select * from tbl_member");
@@ -77,10 +82,6 @@ public class MemberDao {
 	}
 //	회원 id/pw 삭제
 	public int delete(String id) throws Exception{
-//		pstmt = conn.prepareStatement("delete from tbl_member where id = ?");
-//		pstmt.setString(1,id);
-//		
-//		return pstmt.executeUpdate();
 		
 		pstmt = conn.prepareStatement("delete from tbl_member where id = ?");
 		pstmt.setString(1,id);
