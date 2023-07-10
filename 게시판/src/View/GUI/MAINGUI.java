@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import Domain.Common.Dao.BoardDao;
+import Domain.Common.Dao.BoardDaoImpl;
 import Domain.Common.Dto.BoardDto;
 
 public class MAINGUI extends JFrame implements ActionListener, KeyListener {
@@ -87,7 +88,7 @@ public class MAINGUI extends JFrame implements ActionListener, KeyListener {
 
 //		tbl2에 전체 게시물 보여주기
 		// 보드 DAO 인스턴스 생성
-		BoardDao boardDao = BoardDao.getInstance();
+		BoardDao boardDao = BoardDaoImpl.getInstance();
 
 		// 게시물 정보 가져오기
 		List<BoardDto> boardList = null;

@@ -8,7 +8,9 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import Domain.Common.Dao.CommentDao;
+import Domain.Common.Dao.CommentDaoImpl;
 import Domain.Common.Dao.MemberDao;
+import Domain.Common.Dao.MemberDaoImpl;
 import Domain.Common.Dto.BoardDto;
 import Domain.Common.Dto.CommentDto;
 import Domain.Common.Dto.MemberDto;
@@ -17,7 +19,7 @@ class DaoTests {
 
 	@Test
 	void Test1_CommentDaoTest() throws Exception {
-		CommentDao dao = CommentDao.getInstance();
+		CommentDao dao = CommentDaoImpl.getInstance();
 		assertNotNull(dao);
 
 		// 댓글 정보 생성
@@ -36,7 +38,7 @@ class DaoTests {
 
 	@Test
 	void Test2_CommentDaoTest() throws Exception {
-		CommentDao dao = CommentDao.getInstance();
+		CommentDao dao = CommentDaoImpl.getInstance();
 		assertNotNull(dao);
 
 		// 보드 정보 생성
@@ -61,7 +63,7 @@ class DaoTests {
 	// 회원 저장
 	@Test
 	void Test1_MemberDaoTest() throws Exception {
-		MemberDao dao = MemberDao.getInstance();
+		MemberDao dao = MemberDaoImpl.getInstance();
 		assertNotNull(dao);
 
 		dao.insert(new MemberDto("망망3", "1234"));
@@ -80,7 +82,7 @@ class DaoTests {
 	// 회원 조회
 	@Test
 	void Test3_MemberDaoTest() throws Exception {
-		MemberDao dao = new MemberDao();
+		MemberDao dao = new MemberDaoImpl();
 		assertNotNull(dao);
 
 		List<MemberDto> list = dao.select();
@@ -94,7 +96,7 @@ class DaoTests {
 	// 회원 삭제
 	@Test
 	void Test4_MemberDaoTest() throws Exception {
-		MemberDao dao = new MemberDao();
+		MemberDao dao = new MemberDaoImpl();
 		assertNotNull(dao);
 		int result = dao.delete("망망2");
 		assertEquals(1, result);

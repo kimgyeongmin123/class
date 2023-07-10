@@ -20,7 +20,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import Domain.Common.Dao.BoardDao;
-import Domain.Common.Dao.MemberDao;
+import Domain.Common.Dao.BoardDaoImpl;
+import Domain.Common.Dao.MemberDaoImpl;
 import Domain.Common.Dto.BoardDto;
 
 //	id는 JLabel을 사용하여 불러오게끔....
@@ -98,7 +99,7 @@ public class Writer_GUI extends JFrame implements ActionListener, KeyListener {
 		});
 
 		// 보드 DAO 인스턴스 생성
-		BoardDao boardDao = BoardDao.getInstance();
+		BoardDao boardDao = BoardDaoImpl.getInstance();
 
 		// 저장버튼 눌렀을 때 이벤트 처리
 		btn1.addActionListener(new ActionListener() {

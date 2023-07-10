@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.Test;
 
 import Domain.Common.Dao.BookDao;
+import Domain.Common.Dao.BookDaoImp;
 import Domain.Common.Dao.LendDao;
 import Domain.Common.Dao.MemberDao;
 import Domain.Common.Dto.BookDto;
@@ -18,21 +19,21 @@ public class DaoTests {
 
 	@Test
 	public void BookDaoTest1() {
-		BookDao dao = new BookDao();
+		BookDaoImp dao = new BookDao();
 		//객체연결 여부 확인 Test함수
 		assertNotNull(dao);
 	}
 	
 	@Test
 	public void BookDaoTest2_insert() throws Exception {
-		BookDao dao = new BookDao();
+		BookDaoImp dao = new BookDao();
 		assertNotNull(dao);
 		int result=dao.insert(new BookDto(1,"JAVA의정석","A출판사","1111"));
 		assertEquals(1,result); //기대값,실제값
 	}
 	@Test
 	public void BookDaoTest3_insert_post100() throws Exception {
-		BookDao dao = new BookDao();
+		BookDaoImp dao = new BookDao();
 		assertNotNull(dao);
 		int result=0;
 		for(int i=1;i<100;i++) {
@@ -43,7 +44,7 @@ public class DaoTests {
 	}
 	@Test
 	public void BookDaoTest4_select() throws Exception {
-		BookDao dao = new BookDao();
+		BookDaoImp dao = new BookDao();
 		assertNotNull(dao);
  
 		List<BookDto> list = dao.select();
@@ -56,7 +57,7 @@ public class DaoTests {
 	
 	@Test
 	public void BookDaoTest5_select_bookcode() throws Exception {
-		BookDao dao = new BookDao();
+		BookDaoImp dao = new BookDao();
 		assertNotNull(dao);
  
 		BookDto dto = dao.select(10);

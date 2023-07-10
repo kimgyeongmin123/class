@@ -7,7 +7,7 @@ import java.util.Map;
 import Domain.Common.Dto.BookDto;
 import Domain.Common.Service.BookService;
 
-public class BookController {
+public class BookController implements subController {
 
 	private BookService service;
 	
@@ -16,6 +16,7 @@ public class BookController {
 	}
 	
 	// 1 Select , 2 Insert , 3 Update , 4 Delete
+	@Override
 	public Map<String,Object> execute(int serviceNo, Map<String, Object> param) {
 
 		if (serviceNo == 1) {

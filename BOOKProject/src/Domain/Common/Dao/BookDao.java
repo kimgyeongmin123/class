@@ -27,7 +27,7 @@ public class BookDao {
 	}
 	//
 	
-	public BookDao(){
+	private BookDao(){
 		id="root";
 		pw="1234";
 		url="jdbc:mysql://localhost:3306/bookdb";

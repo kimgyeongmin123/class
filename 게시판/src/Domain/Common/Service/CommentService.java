@@ -2,8 +2,9 @@ package Domain.Common.Service;
 
 import java.util.List;
 
-import Domain.Common.Dao.BoardDao;
+import Domain.Common.Dao.BoardDaoImpl;
 import Domain.Common.Dao.CommentDao;
+import Domain.Common.Dao.CommentDaoImpl;
 import Domain.Common.Dto.CommentDto;
 
 public class CommentService {
@@ -19,7 +20,7 @@ public class CommentService {
 	
 	
 	private CommentService() {
-		dao = CommentDao.getInstance();
+		dao = CommentDaoImpl.getInstance();
 		memberService = MemberService.getInstance();
 	}
 //	댓글 조회하기 - 전체

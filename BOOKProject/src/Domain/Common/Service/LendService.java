@@ -21,7 +21,7 @@ public class LendService {
 	}
 	//
 	
-	public LendService(){
+	private LendService(){
 		dao=LendDao.getInstance();
 		memService = MemberService.getInstance();
 		bookService = BookService.getInstance();

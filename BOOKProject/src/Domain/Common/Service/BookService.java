@@ -3,13 +3,14 @@ package Domain.Common.Service;
 import java.util.List;
 
 import Domain.Common.Dao.BookDao;
+import Domain.Common.Dao.BookDaoImp;
 import Domain.Common.Dto.BookDto;
 
 public class BookService {
 
 	
 	
-	private BookDao dao;
+	private BookDaoImp dao;
 
 	//싱글톤
 	private static BookService instance;
@@ -22,7 +23,7 @@ public class BookService {
 	
 	//
 	private MemberService memberService;
-	public BookService() {
+	private BookService() {
 		dao = BookDao.getInstance();
 		memberService = MemberService.getInstance();
 	}
