@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- BS Cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+    <style>
+        body {
+            background-color: lightgray;
+            width: 1024px;
+            height: 860px;
+        }
+
+        a {
+            text-decoration-line: none;
+            color: black;
+        }
+
+        label {
+            font-size: 30px;
+        }
+
+        form {
+            margin: 50px auto;
+        }
+
+        textarea {
+            resize: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="" class="w-50">
+        <a href="index.html">
+            <h1 style="text-align:center;  margin-bottom: 150px; font-weight: bold; font-size: 40px;">메인화면</h1>
+        </a>
+
+        <div>
+            <label for="" style="font-weight: bold;">제목</label>
+            <div>
+                <input style="font-size: 25px ;font-weight: bold;" class="form-control" />
+            </div>
+        </div>
+
+        <div>
+            <label for="" style="font-weight: bold;">내용 </label>
+            <div>
+                <textarea style="font-size: 20px; font-weight: bold;" rows="10" class="form-control"></textarea>
+            </div>
+        </div>
+
+        <div>
+            <input type="button" value="돌아가기" class="btn btn-primary mt-4" onclick="location.href='index.html'"
+                style="float:right;background-color: black; border-color: black; "  />
+        </div>
+        <div>
+           <input type="submit" value="작성하기" class="btn btn-primary mt-4"
+                style="float:right; margin-right: 10px; background-color: black; border-color: black;" />
+           
+        </div>
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+.page {
+    text-align: center;
+    width: 700px;
+    height: 60px;
+    border: 0px;
+    left: 130px;
+    top: 780px;
+    /* bottom: 80px; */
+    justify-content: center;
+  }
+  
+  .pagination {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    justify-content: center;
+  }
+  
+  .pagination li {
+    display: inline;
+    text-align: center;
+  }
+  
+  /* 숫자 스타일 */
+  .pagination a {
+    float: left;
+    display: block;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 5px 12px;
+    color: #96a0ad;
+    line-height: 1.5;
+  }
+  
+  .first {
+    margin-right: 15px;
+  }
+  
+  .last {
+    margin-left: 15px;
+  }
+  
+  .first:hover,
+  .last:hover,
+  .left:hover,
+  .right:hover {
+    color: #2e9cdf;
+  }
+  
+  .pagination a.active {
+    cursor: default;
+    color: #ffffff;
+  }
+  
+  .pagination a:active {
+    outline: none;
+  }
+  
+  .modal .num {
+    margin-left: 3px;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+  }
+  
+  .modal .num:hover {
+    background-color: #2e9cdf;
+    color: #ffffff;
+  }
+  
+  .modal .num.active,
+  .modal .num:active {
+    cursor: pointer;
+    color: #96a0ad;
+  }
+  
+  .arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px slid blue;
+  }
+  
+  

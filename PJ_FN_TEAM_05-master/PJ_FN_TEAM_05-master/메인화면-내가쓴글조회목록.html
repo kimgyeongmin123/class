@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 5px;
+    }
+
+    a {
+        text-decoration-line: none;
+        color: black;
+    }
+
+    body {
+        /* border: 1px solid; */
+        display: absolute;
+    }
+
+    body>a>h1 {
+        /*게시판*/
+        height: 50px;
+        /* border: 1px solid black; */
+        text-align: center;
+        line-height: 50px;
+        font-size: 2.5rem;
+        padding: 10px;
+        margin-bottom: 50px;
+        /* background-color: lightgray; */
+    }
+
+    .subtitle {
+        /*내가 쓴 글*/
+        /* border:1px solid; */
+        margin-bottom: 20px;
+        margin-left: 20px;
+        font-size: 1.5rem;
+
+    }
+
+    body>section {
+        height: auto;
+        /* border: 1px solid; */
+    }
+
+    body>section>thead {
+        width: 100%;
+        height: 600px;
+        text-align: center;
+        line-height: 600px;
+    }
+
+    body>.back {
+        /*뒤로가기 버튼*/
+        width: 80px;
+        height: 50px
+    }
+
+    .back:hover {
+        cursor: pointer;
+    }
+
+    body>section>table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    section>table>thead>tr {
+        /* background-color: lightgrey; */
+
+    }
+
+    section>table>tbody>tr:hover {
+        cursor: pointer;
+    }
+
+
+    section>table>thead>tr>th {
+        height: 50px;
+        /* border:1px solid; */
+        text-align: center;
+
+    }
+
+    section>table>tbody>tr {}
+
+    section>table>tbody>tr>td {
+        height: 25px;
+        text-align: center;
+        border: 1px solid;
+    }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tableHead = document.querySelector('section table tbody');
+            tableHead.addEventListener('click', function () {
+                window.location.href = '내가쓴글조회목록-내가쓴글.html';
+            });
+        });
+    </script>
+
+<body>
+    <a href="index.html">
+        <h1>"이름을 뭘로하지" 게시판</h1>
+    </a>
+    <div class="subtitle">
+        <h4>내가 쓴 글</h4>
+    </div>
+    <section>
+        <table>
+            <!-- <caption>내가 쓴 글 목록</caption> -->
+            <colgroup>
+                <col style="width:3%">
+                <col style="width:40%">
+                <col style="width:15%">
+                <col style="width:10%">
+                <col style="width:5%">
+            </colgroup>
+                
+            <thead>
+<tr>
+                    <th>No</th>
+                    <th>제목</th>
+                    <th>글쓴이</th>
+                    <th>작성날짜</th>
+                    <th>조회</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>공지사항</td>
+                    <td>관리자</td>
+                    <td>2023.07.14</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <a href="index.html"><button class="back">뒤로가기</button></a>
+</body>
+
+</html>
