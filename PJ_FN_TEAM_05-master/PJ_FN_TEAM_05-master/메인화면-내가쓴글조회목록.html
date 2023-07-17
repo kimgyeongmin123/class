@@ -17,8 +17,10 @@
     }
 
     body {
-        /* border: 1px solid; */
-        display: absolute;
+        width: 1024px;
+        height: 860px;
+        margin: 10px auto;
+        background-color: lightgray;
     }
 
     body>a>h1 {
@@ -95,16 +97,16 @@
         text-align: center;
         border: 1px solid;
     }
-    </style>
+</style>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const tableHead = document.querySelector('section table tbody');
-            tableHead.addEventListener('click', function () {
-                window.location.href = '내가쓴글조회목록-내가쓴글.html';
-            });
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const tableHead = document.querySelector('section table tbody');
+        tableHead.addEventListener('click', function () {
+            window.location.href = '내가쓴글조회목록-내가쓴글.html';
         });
-    </script>
+    });
+</script>
 
 <body>
     <a href="index.html">
@@ -123,9 +125,9 @@
                 <col style="width:10%">
                 <col style="width:5%">
             </colgroup>
-                
+
             <thead>
-<tr>
+                <tr>
                     <th>No</th>
                     <th>제목</th>
                     <th>글쓴이</th>
@@ -134,7 +136,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr style="background-color: white;">
                     <td>1</td>
                     <td>공지사항</td>
                     <td>관리자</td>

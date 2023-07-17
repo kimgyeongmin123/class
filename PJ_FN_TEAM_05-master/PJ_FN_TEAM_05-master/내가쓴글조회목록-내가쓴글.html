@@ -13,8 +13,10 @@
 
 
     body {
-        /* border: 1px solid; */
-        display: absolute;
+        width: 1024px;
+        height: 860px;
+        margin: 10px auto;
+        background-color: lightgray;
     }
 
     body>a {
@@ -33,12 +35,20 @@
         margin-bottom: 50px;
     }
 
-    .subtitle{  /*내가 쓴 글*/
+    .subtitle {
+        /*내가 쓴 글*/
         /* border:1px solid; */
-        margin-bottom:20px;
-        margin-left:20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
         font-size: 1.5rem;
-        
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .subtitle button {
+        margin-right: 30px;
     }
 
     body>header {}
@@ -49,10 +59,10 @@
 
     body>header>div>h3>span {}
 
-    .top{
-        position:relative;
-        border-top:2px solid;
-        padding-bottom:37px;
+    .top {
+        position: relative;
+        border-top: 2px solid;
+        padding-bottom: 37px;
 
     }
 
@@ -60,8 +70,8 @@
         width: 100%;
         height: 90px;
         border-bottom: 1px solid;
-        margin:16px 0 29px;
-        padding-bottom: 11px;;
+        margin: 16px 0 29px;
+        padding-bottom: 11px;
     }
 
     .title {
@@ -69,41 +79,92 @@
         margin: 10px;
     }
 
-    .title_middle{
-        height:10px;
+    .title_middle {
+        height: 10px;
     }
+
     .nick {
         /* border: 1px solid; */
         margin: 10px;
     }
 
-    .nicktilte{
-        
+    .nicktilte {
+
         border: 1px solid;
     }
 
-    .content{
-        width:100%;
-        height:400px;
-        padding-top:50px;
-        border-bottom:2px solid;
+    .content {
+        width: 100%;
+        height: auto;
+        padding-top: 50px;
+        padding-bottom: 90px;
+        border-bottom: 2px solid;
     }
 
     .back {
         /*뒤로가기 버튼*/
-        width: 80px;
+        /* width: 80px; */
         height: 50px;
-        /* cursor:pointer; */
+        float: right;
+        margin-right: 30px;
     }
 
-    .back:hover{
+    .back:hover {
         cursor: pointer;
+    }
+
+    .comment-section {
+        margin-top: 20px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .comment-section textarea {
+        width: 9900px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+
+    .comment-section button {
+        width: 500px;
+        margin-right: 30px;
+    }
+
+    .comment-section button:hover{
+        cursor: pointer;
+    }
+
+    .comment-list {
+        border-top: 2px solid;
+    }
+
+    .comment-list .comment {
+        border-bottom: 1px solid;
+        padding: 10px;
+        margin-bottom: 10px;
+
+    }
+
+    .comment-list .comment .comment-author {
+        font-weight: bold;
+    }
+
+    .comment-list .comment .comment-date {
+        font-size: 12px;
+        color: gray;
     }
 </style>
 
 <body>
-    <a href="index.html"><h1>"이름을 뭘로하지" 게시판</h1></a>
-    <div class="subtitle"><h4>내가 쓴 글</h4></div>
+    <a href="index.html">
+        <h1>"이름을 뭘로하지" 게시판</h1>
+    </a>
+    <div class="subtitle">
+        <h4>내가 쓴 글</h4>
+        <a href="수정하기.html"><button class="back">수정하기</button></a>
+    </div>
     <div class="top"></div>
     <article>
         <div>
@@ -123,15 +184,37 @@
                     </div>
                 </div>
             </header>
-            <div class="content">저희 게시판을 이용해 주셔서 감사합니다.<br>우리는 당신의 알차고 행복한 게시판 활동을 위해 최선을 다할 것입니다.<br>라고 할뻔~<br><br>+ 게시판 이름 추천받습니다.</div>
+            <div class="content">저희 게시판을 이용해 주셔서 감사합니다.<br>우리는 당신의 알차고 행복한 게시판 활동을 위해 최선을 다 할 것입니다.<br>라고 할뻔~<br><br>+
+                게시판 이름 추천받습니다.</div>
         </div>
     </article>
-
-    <div>
-        
+    <!-- 댓글 코드 -->
+    <div class="comment-section">
+        <textarea placeholder="댓글을 작성하세요. 악플은 노노노" style="resize: none;"></textarea>
+        <button>등록</button>
     </div>
 
-    <a href="메인화면-내가쓴글조회목록.html"><button class="back">뒤로가기</button></a>
+    <div class="comment-list">
+        <div class="comment">
+            <div class="comment-author">망고</div>
+            <div class="comment-date">2023-07-17 10:15:23</div>
+            <div class="comment-content">게시판 이름을 쏯쏯으로 해주세요!</div>
+        </div>
+        <div class="comment">
+            <div class="comment-author">흑두루미</div>
+            <div class="comment-date">2023-07-17 11:20:45</div>
+            <div class="comment-content">관리자 제대로 안하냐? 내가해도 더 잘하겠다</div>
+        </div>
+        <div class="comment">
+            <div class="comment-author">흑돼지</div>
+            <div class="comment-date">2023-07-17 13:18:27</div>
+            <div class="comment-content">내 위에 흑두루미 없제? 꿀 아니야..킥킥킥</div>
+        </div>
+        <!-- 추가적인 댓글을 여기에 추가 -->
+    </div>
+
+
+    <a href="메인화면-내가쓴글조회목록.html"><button class="back">↵ 이전페이지</button></a>
 </body>
 
 </html>
