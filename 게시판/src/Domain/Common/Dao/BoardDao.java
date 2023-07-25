@@ -22,12 +22,13 @@ public interface BoardDao {
 	List<BoardDto> search_title(String title) throws Exception;
 
 	//	내가 쓴 글 조회
-	List<BoardDto> select_mine(String id) throws Exception;
+	List<BoardDto> search_mine(String id) throws Exception;
 
 	//	내가 쓴 글 수정
 	int update(BoardDto dto) throws Exception;
 
 	//	내가 쓴 글 삭제
 	int delete(String id) throws Exception;
+
 
 }

@@ -1,0 +1,109 @@
+.wrapper>header {
+    border:1px solid;
+}
+
+.wrapper>header>.top-header {
+    border:1px solid;
+    height:40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(101, 101, 101, 0.157);
+    background-color: darkgray;
+    margin:0px;
+}
+
+.wrapper>header>.top-header>.logo {
+    text-align: center;
+    font-size: 15px;
+    width:100px;
+    height:30px;
+    line-height: 30px;
+    border-radius: 20px;
+}
+
+.wrapper>header>.top-header>ul {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-left:0;
+}
+
+.wrapper>header>.top-header>ul>li {
+    width:80px;
+    border:1px solid;
+    position:relative;
+    text-align: center;
+    border-radius: 10px;
+    background-color: azure;
+}
+
+ 
+.wrapper>header>.top-header>ul>li>a {
+    display: block;
+}
+
+.wrapper>header>.top-header>.sitemenu{
+    display: none;
+}
+
+.wrapper>header>nav {
+}
+
+.wrapper>header>nav>ul {
+    display: flex;
+    border:1px solid;
+    padding: 0;
+    justify-content: center; /*가로중앙정렬*/
+    align-items: center; /*세로중앙정렬*/
+    flex-wrap: wrap;
+}
+
+.wrapper>header>nav>ul>li {
+    border:1px solid;
+    height:30px;
+    flex-grow: 1;
+    position: relative;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 10px;
+}
+
+.wrapper>header>nav>ul>li>a {
+    display: block;
+    
+}
+
+.wrapper>header>nav>ul>li>ul{
+    background-color: white;
+
+    /*서브메뉴 안보이게*/
+    display: none;    
+
+    position: absolute;
+    width:100%;
+    padding:0;
+    z-index: 1000000;
+    
+}
+.wrapper>header>nav>ul>li>ul>li{   
+ height:30px;
+ border:1px solid;
+ font-size: 12px;
+ border-radius: 5px;
+ background-color: rgba(62, 62, 62, 0.246);
+}
+
+.wrapper>header>nav>ul>li>ul>li>a{ /*서브메뉴*/
+ text-align: center;
+ line-height: 30px;
+ display: block;
+ 
+}
+.wrapper>header>nav>ul>li:hover ul{ /*메뉴에 마우스를 올려놨을때의 서브메뉴지정*/
+    display: block;
+    transition: 1s;
+}
+
+
+

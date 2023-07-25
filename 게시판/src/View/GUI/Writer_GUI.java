@@ -21,7 +21,6 @@ import javax.swing.JTextField;
 
 import Domain.Common.Dao.BoardDao;
 import Domain.Common.Dao.BoardDaoImpl;
-import Domain.Common.Dao.MemberDaoImpl;
 import Domain.Common.Dto.BoardDto;
 
 //	id는 JLabel을 사용하여 불러오게끔....

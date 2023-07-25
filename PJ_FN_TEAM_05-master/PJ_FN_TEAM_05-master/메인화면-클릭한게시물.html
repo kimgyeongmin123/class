@@ -11,12 +11,20 @@
         margin: 5px;
     }
 
+
     body {
-        /* border: 1px solid; */
-        display: absolute;
+        width: 1024px;
+        height: 860px;
+        margin: 10px auto;
+        background-color: lightgray;
     }
 
-    body>h1 {
+    body>a {
+        text-decoration-line: none;
+        color: black;
+    }
+
+    body>a>h1 {
         /*게시판*/
         height: 50px;
         /* border: 0px solid black; */
@@ -27,12 +35,20 @@
         margin-bottom: 50px;
     }
 
-    .subtitle{  /*내가 쓴 글*/
+    .subtitle {
+        /*내가 쓴 글*/
         /* border:1px solid; */
-        margin-bottom:20px;
-        margin-left:20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
         font-size: 1.5rem;
-        
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .subtitle button {
+        margin-right: 30px;
     }
 
     body>header {}
@@ -43,10 +59,10 @@
 
     body>header>div>h3>span {}
 
-    .top{
-        position:relative;
-        border-top:2px solid;
-        padding-bottom:37px;
+    .top {
+        position: relative;
+        border-top: 2px solid;
+        padding-bottom: 37px;
 
     }
 
@@ -54,8 +70,8 @@
         width: 100%;
         height: 90px;
         border-bottom: 1px solid;
-        margin:16px 0 29px;
-        padding-bottom: 11px;;
+        margin: 16px 0 29px;
+        padding-bottom: 11px;
     }
 
     .title {
@@ -63,83 +79,146 @@
         margin: 10px;
     }
 
-    .title_middle{
-        height:10px;
+    .title_middle {
+        height: 10px;
     }
+
     .nick {
         /* border: 1px solid; */
         margin: 10px;
     }
 
-    .nicktilte{
-        
+    .nicktilte {
+
         border: 1px solid;
     }
 
-    .content{
-        width:100%;
-        height:300px;
-        padding-top:50px;
-        border-bottom:2px solid;
+    .content {
+        width: 100%;
+        height: auto;
+        padding-top: 50px;
+        padding-bottom: 90px;
+        border-bottom: 2px solid;
     }
 
     .back {
         /*뒤로가기 버튼*/
-        width: 80px;
+        /* width: 80px; */
         height: 50px;
-        cursor:pointer;
+        float: right;
+        margin-right: 30px;
     }
 
-    .back:hover{
+    .back:hover {
         cursor: pointer;
     }
-    .comment{
-        width: 100%;
-        height: 100px;
-        border: 1px solid;
+
+    .comment-section {
+        margin-top: 20px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
-    #btn{
-        width: auto;
-        height: 30px;
-        float: right;
+
+    .comment-section textarea {
+        width: 9900px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+
+    .comment-section button {
+        width: 500px;
+        margin-right: 30px;
+    }
+
+    .comment-section button:hover{
+        cursor: pointer;
+    }
+
+    .comment-list {
+        border-top: 2px solid;
+    }
+
+    .comment-list .comment {
+        border-bottom: 1px solid;
+        padding: 10px;
+        margin-bottom: 10px;
+
+    }
+
+    .comment-list .comment .comment-author {
+        font-weight: bold;
+    }
+
+    .comment-list .comment .comment-date {
+        font-size: 12px;
+        color: gray;
     }
 </style>
 
 <body>
-    <a href="index.html"><h1>"이름을 뭘로하지" 게시판</h1></a>
-    <div class="subtitle"><h4>내가 쓴 글</h4></div>
+    <a href="index.html">
+        <h1>"이름을 뭘로하지" 게시판</h1>
+    </a>
+    <div class="subtitle">
+        <h4>당신이 선택한 게시물</h4>
+        
+    </div>
     <div class="top"></div>
     <article>
         <div>
             <header>
                 <div class="alltile">
                     <h3>
-                        <span class="title">모두의 게시판을 사용하기위한 공지사항</span>
+                        <span class="title">안녕하세요 혹시 제가 첫 회원인가요..?</span>
                     </h3>
                     <div class="title_middle"></div>
                     <div class="nicktitle">
                         <span class="nick">
-                            관리자
+                            춘식이
                         </span>
                         <span class="date">
-                            2023-07-17 09:41:23
+                            2023-07-17 21:19:21
                         </span>
                     </div>
                 </div>
             </header>
-            <div class="content">저희 게시판을 이용해 주셔서 감사합니다.<br>우리는 당신의 알차고 행복한 게시판 활동을 위해 최선을 다할 것입니다.<br>라고 할뻔~<br><br>+ 게시판 이름 추천받습니다.</div>
+            <div class="content">방금 가입했습니다. 제가 첫회원인가요?<br>여기 사람있어요!!!!</div>
         </div>
-        <div>
-            <input type="text" class="comment">
-        </div>
-        <button id="btn">작성</button>
     </article>
-
-    <div>
-        
+    <!-- 댓글 코드 -->
+    <div class="comment-section">
+        <textarea placeholder="댓글을 작성하세요. 악플은 노노노" style="resize: none;"></textarea>
+        <button>등록</button>
     </div>
 
-    <a href="메인화면-내가쓴글조회목록.html"><button class="back">뒤로가기</button></a>
+    <div class="comment-list">
+        <div class="comment">
+            <div class="comment-author">망고</div>
+            <div class="comment-date">2023-07-17 21:21:30</div>
+            <div class="comment-content">춘식이야~~~~ 누가 우리 춘식이좀 구해줘요</div>
+        </div>
+        <div class="comment">
+            <div class="comment-author">흑두루미</div>
+            <div class="comment-date">2023-07-17 22:10:10</div>
+            <div class="comment-content">네 그렇습니다. 이 댓글또한 테스트용으로 만들어졌어요</div>
+        </div>
+        <div class="comment">
+            <div class="comment-author">흑돼지</div>
+            <div class="comment-date">2023-07-17 13:18:27</div>
+            <div class="comment-content">나 건들면 간지럽힌다?</div>
+        </div>
+        <div class="comment">
+            <div class="comment-author">행님</div>
+            <div class="comment-date">2023-07-17 21:18:55</div>
+            <div class="comment-content">쑻쑻쑻쑻쑻쑻쑻쑻쑻쑻</div>
+        </div>
+        <!-- 추가적인 댓글을 여기에 추가 -->
+    </div>
+
+
+    <a href="index.html"><button class="back">↵ 이전페이지</button></a>
 </body>
 
 </html>

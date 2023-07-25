@@ -1,0 +1,36 @@
+.wrapper>footer {
+    border:1px solid;
+
+}
+
+.wrapper>footer>.footer-top {
+    border: 1px solid;
+}
+
+.wrapper>footer>.footer-top>ul {
+    display: flex;
+    width: 50%;
+    padding: 0px;
+    flex-wrap: wrap;
+    margin:0 auto;
+}
+
+.wrapper>footer>.footer-top>ul>li {
+    border: 1px solid;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.wrapper>footer>.footer-top>ul>li>a {
+    display: block; /*네모칸 텍스트가 없는 빈부분도 눌리게 한다*/
+}
+
+.wrapper>footer>.footer-body {
+    border: 1px solid;
+    height: 50px;
+}
+
+.wrapper>footer>.footer-bottom {
+    border: 1px solid;
+    height: 20px;
+}

@@ -6,7 +6,7 @@ import java.util.Map;
 import Domain.Common.Dto.LendDto;
 import Domain.Common.Service.LendService;
 
-public class LendController {
+public class LendController implements subController  {
 
 	LendService service;
 	

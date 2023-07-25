@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import Domain.Common.Dto.MemberDto;
-import Domain.Common.Service.MemberService;
+import Domain.Common.Service.MemberServiceImpl;
 
 public class Join_GUI extends JFrame implements ActionListener, KeyListener{
 	JButton btn1;
@@ -65,7 +65,7 @@ public class Join_GUI extends JFrame implements ActionListener, KeyListener{
 
 		        try {
 		            // 회원가입 처리
-		            boolean success = MemberService.getInstance().Join(dto);
+		            boolean success = MemberServiceImpl.getInstance().Join(dto);
 		            if (success) {
 		                // 회원가입 성공
 		            	JOptionPane.showMessageDialog(Join_GUI.this, "회원가입이 완료되었습니다.", "회원가입 성공", JOptionPane.INFORMATION_MESSAGE);

@@ -60,7 +60,7 @@ public class BoardDaoImpl extends ConnectionPool implements BoardDao {
 	public BoardDto select_one(int number) throws Exception {
 
 		BoardDto dto = null;
-		pstmt = conn.prepareStatement("select * from tbl_contents where number = ?");
+		pstmt = conn.prepareStatement("select * from tbl_board where number = ?");
 		pstmt.setInt(1, number);
 		rs = pstmt.executeQuery();
 		if (rs != null) {
@@ -122,7 +122,7 @@ public class BoardDaoImpl extends ConnectionPool implements BoardDao {
 
 //	내가 쓴 글 조회
 	@Override
-	public List<BoardDto> select_mine(String id) throws Exception {
+	public List<BoardDto> search_mine(String id) throws Exception {
 		List<BoardDto> list = new ArrayList();
 		BoardDto dto = null;
 		pstmt = conn.prepareStatement("select * from tbl_board where id = ?");

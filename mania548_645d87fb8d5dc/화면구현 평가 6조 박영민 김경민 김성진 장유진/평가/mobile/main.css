@@ -1,0 +1,55 @@
+
+.wrapper>main{
+}
+
+.wrapper>main>section{
+}
+
+.wrapper>main>section:nth-child(1){
+
+}
+.wrapper>main>section:nth-child(1)>aside{
+
+}
+.wrapper>main>section:nth-child(1)>aside>h2{
+    display: none;
+}
+.wrapper>main>section:nth-child(1)>article{
+    
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-color: rgba(111, 111, 111, 0.42);
+}
+
+.wrapper>main>section:nth-child(2){
+
+}
+
+
+/* BANNER */
+.container{
+    
+   
+}
+.container>.card{
+    
+}
+.container>.card>.front,
+.container>.card>.back
+{
+    
+}
+
+.container>.card>.front{
+   
+}
+.container>.card>.front:hover{
+   
+}
+.container>.card>.back{
+   
+}
+.container:hover .card{
+   
+}
